@@ -10,18 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a45a1e8f9e2031a4ca12244735f72c28, type: 3}
-  m_Name: ScatterBallStats
+  m_Name: MiniBallStats
   m_EditorClassIdentifier: 
   initialStats:
-  - key: 0
-    value: 2
   - key: 1
-    value: 7
-  - key: 2
-    value: 30
-  - key: 5
-    value: 2
-  sprite: {fileID: 21300000, guid: d820f38ca2d1e164c9aedabc74a93ae2, type: 3}
-  scale: {x: 1, y: 1, z: 1}
-  color: {r: 0.16470589, g: 0.6156863, b: 0.56078434, a: 1}
+    value: 8
+  - key: 0
+    value: 1
+  sprite: {fileID: 21300000, guid: 7424b5afc62574b48aa4fb8995ff3750, type: 3}
+  scale: {x: 0.7, y: 0.7, z: 0.7}
+  color: {r: 0.14509805, g: 0.41568628, b: 0.4117647, a: 1}
   hitSounds: []

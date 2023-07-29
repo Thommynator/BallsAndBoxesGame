@@ -35,6 +35,18 @@ public class BallStats : ScriptableObject
         return 0;
     }
 
+    public void IncreaseStat(Stat stat, float value)
+    {
+        if (_stats.ContainsKey(stat))
+        {
+            _stats[stat] += value;
+        }
+        else
+        {
+            Debug.LogError($"Not found! Can't increase stat {stat} on {this.name}");
+        }
+    }
+
     public void SetStat(Stat stat, float value)
     {
         if (_stats.ContainsKey(stat))
@@ -43,7 +55,7 @@ public class BallStats : ScriptableObject
         }
         else
         {
-            Debug.LogError($"Nout found! Can't set new value for stat {stat} on {this.name}");
+            Debug.LogError($"Not found! Can't set new value for stat {stat} on {this.name}");
         }
     }
 }

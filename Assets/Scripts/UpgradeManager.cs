@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using MoreMountains.Feedbacks;
-using TMPro;
 
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField]
-    private int _clickDamage;
+    private BallStats _mouseClick;
 
     [SerializeField]
     private int _money;
@@ -40,7 +38,7 @@ public class UpgradeManager : MonoBehaviour
 
     public int GetClickDamange()
     {
-        return _clickDamage;
+        return (int)_mouseClick.TryToGetStat(Stat.HIT_DAMAGE);
     }
     public void IncreaseMoneyBy(int amount)
     {

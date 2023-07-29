@@ -19,7 +19,7 @@ public class ScatterBall : Ball
 
     private void SpawnScatterBalls()
     {
-        for (int i = 0; i < _stats.TryToGetStat(Stat.SCATTER_BALLS); i++)
+        for (int i = 0; i < _stats.TryToGetStat(Stat.NUMBER_OF_MINI_SCATTER_BALLS); i++)
         {
             var miniBall = Instantiate(_miniBall, transform.position, Quaternion.identity);
             miniBall.transform.SetParent(transform.parent);
