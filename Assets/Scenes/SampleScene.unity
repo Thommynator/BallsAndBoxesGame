@@ -983,6 +983,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277938486}
   m_CullTransparentMesh: 1
+--- !u!224 &324437301 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+  m_PrefabInstance: {fileID: 1770957429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &327767439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,6 +3244,30 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1676675853}
     m_Modifications:
+    - target: {fileID: 3669349920055047728, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
+      propertyPath: m_Name
+      value: ExplosionDamageUpgradeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3669349920055047734, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
+      propertyPath: title
+      value: Explosion Damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3669349920055047734, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
+      propertyPath: ballStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 7840af0bffcded742ab9494cf7926ea9, type: 2}
+    - target: {fileID: 3669349920055047734, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
+      propertyPath: description
+      value: Increases the damage of the explosion.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3669349920055047734, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
+      propertyPath: statToUpgrade
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3669349920055047734, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
+      propertyPath: upgradeFunctions
+      value: 
+      objectReference: {fileID: 11400000, guid: 7de9b9485dfc40448aa4595773c512b6, type: 2}
     - target: {fileID: 3669349920636425096, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
       propertyPath: m_Name
       value: ExplosiveBallColumn
@@ -3327,8 +3356,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3669349921292771652, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
+      propertyPath: ballStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 7840af0bffcded742ab9494cf7926ea9, type: 2}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3669349920636425103, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 324437301}
   m_SourcePrefab: {fileID: 100100000, guid: 480acfbd96504624498a6b7144f8d439, type: 3}
 --- !u!1001 &934990481
 PrefabInstance:
@@ -6287,6 +6323,125 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a44be1948ce38a8448b0badad12143fe, type: 3}
+--- !u!1001 &1770957429
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 240287829}
+    m_Modifications:
+    - target: {fileID: 5600691158245574635, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_Name
+      value: ExplosionRangeUpgradeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 404.2011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 415.2104
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574636, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574637, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: title
+      value: Explosion Range
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574637, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: ballStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 7840af0bffcded742ab9494cf7926ea9, type: 2}
+    - target: {fileID: 5600691158245574637, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: description
+      value: Increases the range of the explosion.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574637, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: statToUpgrade
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600691158245574637, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
+      propertyPath: upgradeFunctions
+      value: 
+      objectReference: {fileID: 11400000, guid: ebc872082f7954041a19ed98c49eba0e, type: 2}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0b51f5b4789ae4a4c9fd7bdab862a0a0, type: 3}
 --- !u!1001 &1824258560
 PrefabInstance:
   m_ObjectHideFlags: 0
