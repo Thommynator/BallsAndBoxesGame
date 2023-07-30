@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
     [ContextMenu("CheckRemainingBlocks")]
     public void CheckRemainingBoxes()
     {
-        if (!GetBoxesFor(_currentLevel).Find(block => block.GetBoxStatus() == BoxStatus.ALIVE))
+        if (!GetBoxesFor(_currentLevel).Find(box => box.GetBoxStatus() == BoxStatus.ALIVE))
         {
             IncreaseLevel();
         }
@@ -76,6 +76,11 @@ public class LevelManager : MonoBehaviour
         var levels = _levels.Count;
         return _levels[level % levels].GetComponentsInChildren<Box>(true).ToList();
     }
+
+    public List<Box> GetCurrentBoxes()
+    {
+        return GetBoxesFor(_currentLevel);
+    } 
 
     public void IncreaseLevel()
     {
