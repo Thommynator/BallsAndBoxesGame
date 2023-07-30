@@ -37,10 +37,8 @@ public class LevelManager : MonoBehaviour
         {
             if (!GetBlocksOfCurrentLevel().Find(block => block.gameObject.activeSelf))
             {
-                print("No blocks left");
                 IncreaseLevel();
             }
-            print("Found at least one block");
             yield return new WaitForSeconds(0.1f);
         }
 

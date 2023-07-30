@@ -9,5 +9,6 @@ public enum Stat
     PRICE = 2, 
     EXPLOSION_RANGE = 3, 
     EXPLOSION_DAMAGE = 4, 
-    NUMBER_OF_MINI_SCATTER_BALLS = 5
+    NUMBER_OF_MINI_SCATTER_BALLS = 5,
+    MONEY_ON_DEATH = 6,
 }

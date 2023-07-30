@@ -6,7 +6,7 @@ using MoreMountains.Feedbacks;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField]
-    private BallStats _mouseClick;
+    private Stats _mouseClick;
 
     [SerializeField]
     private int _money;

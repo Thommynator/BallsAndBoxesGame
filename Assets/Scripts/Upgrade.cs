@@ -8,7 +8,7 @@ public class Upgrade : MonoBehaviour
     [Header("Upgrade Changes")]
     public string title;
     public string description;
-    public BallStats ballStats;
+    public Stats ballStats;
     public Stat statToUpgrade;
     public UpgradeFunctions upgradeFunctions;
 
@@ -18,6 +18,12 @@ public class Upgrade : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI effectText;
     public ProgressBar progressBar;
+
+
+    void Start()
+    {
+        UpdateText();
+    }
 
     [ContextMenu("Upgrade")]
     public void TryToUpgradeStat()
@@ -56,14 +62,4 @@ public class Upgrade : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        UpdateText(); 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

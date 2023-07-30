@@ -7,7 +7,7 @@ public abstract class Ball : MonoBehaviour
     protected Rigidbody2D _body;
 
     [SerializeField]
-    protected BallStats _stats;
+    protected Stats _stats;
 
     [SerializeField]
     protected LayerMask _dealsDamageTo;
@@ -16,7 +16,7 @@ public abstract class Ball : MonoBehaviour
 
     private int _enteredCollisionFrame = 0;
 
-    public BallStats GetStats()
+    public Stats GetStats()
     {
         return _stats;
     }

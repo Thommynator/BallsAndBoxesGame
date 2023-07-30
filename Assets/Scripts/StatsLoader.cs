@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StatsLoader : MonoBehaviour
 {
-    public List<BallStats> stats;
+    public List<Stats> stats;
 
     void Start()
     {

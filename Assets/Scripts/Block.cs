@@ -38,17 +38,25 @@ public class Block : MonoBehaviour
         UpdateVisuals();
     }
 
-    public void DecreaseHealthBy(int damage)
+    public BlockStatus DecreaseHealthBy(int damage)
     {
         var realDamage = Mathf.Min(damage, _health);
         UpgradeManager.Instance.IncreaseMoneyBy(realDamage);
         _health -= realDamage;
-        UpdateVisuals();
+        if (IsDead())
+        {
+            Debug.Log("Block is dead");
+            gameObject.SetActive(false);
+            return BlockStatus.DEAD;
+        } else
+        {
+            UpdateVisuals();
+            return BlockStatus.ALIVE;
+        }
     }
 
     private void UpdateVisuals()
     {
-        CheckIfDead();
         _healthText.text = _health.ToString();
         ChangeBlockColor();
     }
@@ -58,12 +66,9 @@ public class Block : MonoBehaviour
         DecreaseHealthBy(UpgradeManager.Instance.GetClickDamange());
     }
 
-    private void CheckIfDead()
+    private bool IsDead()
     {
-        if (_health <= 0)
-        {
-            gameObject.SetActive(false);
-        }
+        return _health <= 0;
     }
 
     private void ChangeBlockColor()
@@ -74,5 +79,6 @@ public class Block : MonoBehaviour
     }
 
 
-
 }
+
+public enum BlockStatus { ALIVE, DEAD }

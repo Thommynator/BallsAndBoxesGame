@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb248f618cfd4e94b809a9f13b3c51fa, type: 3}
-  m_Name: MouseClickHitDamageUpgrade
+  m_Name: MoneyBallHitDamageUpgrade
   m_EditorClassIdentifier: 
-  _maxLevel: 20
+  _maxLevel: 10
   _priceFunction:
     _function:
       serializedVersion: 2
@@ -20,27 +20,27 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 0.9009644
+        outSlope: 0.9009644
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
+        outWeight: 0.030487806
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        inSlope: 1.0640534
+        outSlope: 1.0640534
+        tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.027908027
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     _roundType: 0
-    _mapToZero: 100
-    _mapToOne: 5000
+    _mapToZero: 200
+    _mapToOne: 2000
   _effectFunction:
     _function:
       serializedVersion: 2
@@ -48,24 +48,24 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: -2.2085245
-        outSlope: -2.2085245
-        tangentMode: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.02521107
+        outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0
-        inSlope: -0.47851297
-        outSlope: -0.47851297
-        tangentMode: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 34
         weightedMode: 0
-        inWeight: 0.030253291
+        inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _roundType: 1
-    _mapToZero: 2
+    _roundType: 3
+    _mapToZero: 1
     _mapToOne: 1

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BallSpriteVisualizer : MonoBehaviour
 {
-    public BallStats ballStats;
+    public Stats ballStats;
 
     void Start()
     {

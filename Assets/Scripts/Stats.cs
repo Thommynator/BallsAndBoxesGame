@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Stats", menuName = "ScriptableObjects/Stats", order = 1)]
-public class BallStats : ScriptableObject
+public class Stats : ScriptableObject
 {
     public List<StatKeyValuePair> initialStats = new List<StatKeyValuePair>();
     public Sprite sprite;
@@ -17,7 +17,6 @@ public class BallStats : ScriptableObject
 
     public void LoadStats()
     {
-        Debug.Log("Load");
         _stats = new Dictionary<Stat, float>();
         foreach (var stat in initialStats)
         {
