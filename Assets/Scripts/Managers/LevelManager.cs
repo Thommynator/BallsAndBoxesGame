@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -27,42 +28,60 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        EnableBlocks();
-        StartCoroutine(CheckRemainingBlocks());
+        DisableAllBoxes();
+        EnableBlocksOfCurrentLevel();
+        CheckRemainingBoxes();
     }
-    
-    private IEnumerator CheckRemainingBlocks()
+
+    [ContextMenu("CheckRemainingBlocks")]
+    public void CheckRemainingBoxes()
     {
-        while (true)
+        if (!GetBoxesFor(_currentLevel).Find(block => block.GetBoxStatus() == BoxStatus.ALIVE))
         {
-            if (!GetBlocksOfCurrentLevel().Find(block => block.gameObject.activeSelf))
+            IncreaseLevel();
+        }
+    }
+
+
+    private void DisableAllBoxes()
+    {
+        for (int level = 0; level < _levels.Count; level++)
+        {
+            foreach (var block in GetBoxesFor(level))
             {
-                IncreaseLevel();
+                block.gameObject.SetActive(false);
             }
-            yield return new WaitForSeconds(0.1f);
         }
-
     }
 
-    public void EnableBlocks()
+    public void DisableBoxesOfCurrentLevel()
     {
-        foreach (var block in GetBlocksOfCurrentLevel())
+        foreach (var block in GetBoxesFor(_currentLevel))
         {
-            block.SetStartHealth(_currentLevel);
-            block.gameObject.SetActive(true);
+            block.gameObject.SetActive(false);
         }
     }
 
-    private List<Box> GetBlocksOfCurrentLevel()
+    public void EnableBlocksOfCurrentLevel()
+    {
+        foreach (var box in GetBoxesFor(_currentLevel))
+        {
+            box.gameObject.SetActive(true);
+            box.Activate(_currentLevel+1);
+        }
+    }
+
+    private List<Box> GetBoxesFor(int level)
     {
         var levels = _levels.Count;
-        return _levels[_currentLevel % levels].GetComponentsInChildren<Box>(true).ToList();
+        return _levels[level % levels].GetComponentsInChildren<Box>(true).ToList();
     }
 
     public void IncreaseLevel()
     {
+        DisableBoxesOfCurrentLevel();
         _currentLevel++;
-        EnableBlocks();
+        EnableBlocksOfCurrentLevel();
     }
 
 

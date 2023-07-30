@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using MoreMountains.Feedbacks;
+using Unity.VisualScripting;
 
 public class Box : MonoBehaviour
 {
@@ -21,8 +22,16 @@ public class Box : MonoBehaviour
 
     private SpriteRenderer _spriteRenderer;
 
+    private BoxStatus _boxStatus;
+
     [SerializeField]
     private MMF_Player _clickOnBoxFeedback;
+
+    [SerializeField]
+    private MMF_Player _openBoxFeedback;
+
+    [SerializeField]
+    private MMF_Player _closeBoxFeedback;
 
     private void Awake()
     {
@@ -30,32 +39,45 @@ public class Box : MonoBehaviour
     }
     void Start()
     {
-        _clickOnBoxFeedback = GameObject.Find("Feedbacks/MouseClickOnBoxFeedback").GetComponent<MMF_Player>();
         _health = _startHealth;
         UpdateVisuals();
-        gameObject.SetActive(true);
+        Activate(_startHealth);
+        
     }
 
-    public void SetStartHealth(int startHealth)
+
+    private void SetStartHealth(int startHealth)
     {
         _startHealth = startHealth;
         _health = _startHealth;
         UpdateVisuals();
     }
 
-    public BlockStatus DecreaseHealthBy(int damage)
+    public BoxStatus GetBoxStatus()
+    {
+        return _boxStatus;
+    }
+
+    public void Activate(int startHealth)
+    {
+        SetStartHealth(startHealth);
+        _openBoxFeedback.PlayFeedbacks();
+        _boxStatus = BoxStatus.ALIVE;
+    }
+
+    public BoxStatus DecreaseHealthBy(int damage)
     {
         var realDamage = Mathf.Min(damage, _health);
         MoneyManager.Instance.IncreaseMoneyBy(realDamage);
         _health -= realDamage;
         if (IsDead())
         {
-            gameObject.SetActive(false);
-            return BlockStatus.DEAD;
+            _closeBoxFeedback.PlayFeedbacks();
+            return BoxStatus.DEAD;
         } else
         {
             UpdateVisuals();
-            return BlockStatus.ALIVE;
+            return BoxStatus.ALIVE;
         }
     }
 
@@ -73,16 +95,22 @@ public class Box : MonoBehaviour
 
     private bool IsDead()
     {
-        return _health <= 0;
+        var isDead = _health <= 0;
+        _boxStatus = isDead ? BoxStatus.DEAD : BoxStatus.ALIVE;
+        return isDead;
+    }
+    
+    public void InformLevelManagerAboutDeath()
+    {
+        LevelManager.Instance.CheckRemainingBoxes();
     }
 
     private void ChangeBlockColor()
     {
         int colors = _colors.Count;
         _spriteRenderer.color = _colors[_health % colors];
-
     }
 
 }
 
-public enum BlockStatus { ALIVE, DEAD }
+public enum BoxStatus { ALIVE, DEAD }
