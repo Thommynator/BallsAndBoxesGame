@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,6 +8,12 @@ public class UpgradeWindow : MonoBehaviour
 {
     [SerializeField]
     private GameObject _upgradePanel;
+
+    [SerializeField]
+    private MMF_Player _openPanelFeedback;
+
+    [SerializeField]
+    private MMF_Player _closePanelFeedback;
 
     void Start()
     {
@@ -27,17 +34,12 @@ public class UpgradeWindow : MonoBehaviour
 
     public void ShowPanel()
     {
-        _upgradePanel.SetActive(true);
+        _openPanelFeedback.PlayFeedbacks();
     }
 
     public void HidePanel()
     {
-        _upgradePanel.SetActive(false);
+        _closePanelFeedback.PlayFeedbacks();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

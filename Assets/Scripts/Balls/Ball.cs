@@ -89,7 +89,7 @@ public abstract class Ball : MonoBehaviour
 
     protected virtual void ApplyDamageEffect(Collision2D collision)
     {
-        collision.gameObject.TryGetComponent<Block>(out var block);
+        collision.gameObject.TryGetComponent<Box>(out var block);
         block?.DecreaseHealthBy((int)_stats.TryToGetStat(Stat.HIT_DAMAGE));
     }
 

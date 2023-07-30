@@ -10,7 +10,7 @@ public class ExplosiveBall : Ball
 
         foreach (var blockCollider in surroundingBlocks)
         {
-            blockCollider.TryGetComponent(out Block block);
+            blockCollider.TryGetComponent(out Box block);
             block?.DecreaseHealthBy((int)_stats.TryToGetStat(Stat.EXPLOSION_DAMAGE)); 
         }
     }

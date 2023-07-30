@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb248f618cfd4e94b809a9f13b3c51fa, type: 3}
   m_Name: MoneyBallExtraMoneyUpgrade
   m_EditorClassIdentifier: 
-  _maxLevel: 10
+  _maxLevel: 20
   _priceFunction:
     _function:
       serializedVersion: 2
@@ -39,24 +39,24 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     _roundType: 0
-    _mapToZero: 50
-    _mapToOne: 500
+    _mapToZero: 500
+    _mapToOne: 10000
   _effectFunction:
     _function:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
-        inSlope: -0.9208885
-        outSlope: -0.9208885
+        value: 0
+        inSlope: 0.6670266
+        outSlope: 0.6670266
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.032246716
+        outWeight: 0.03283302
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -66,6 +66,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _roundType: 3
-    _mapToZero: 0.1
-    _mapToOne: 1
+    _roundType: 0
+    _mapToZero: 1
+    _mapToOne: 20

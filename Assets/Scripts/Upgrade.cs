@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using MoreMountains.Feedbacks;
 
 public class Upgrade : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class Upgrade : MonoBehaviour
     public TextMeshProUGUI effectText;
     public ProgressBar progressBar;
 
+    [SerializeField]
+    private MMF_Player _successfulPurchaseFeedback;
+
+    [SerializeField]
+    private MMF_Player _failedPurchaseFeedback;
 
     void Start()
     {
@@ -32,12 +38,14 @@ public class Upgrade : MonoBehaviour
         {
             var price = upgradeFunctions.GetPriceAtLevel(currentLevel);
             ballStats.IncreaseStat(statToUpgrade, upgradeFunctions.GetEffectAtLevel(currentLevel));
-            UpgradeManager.Instance.DecreaseMoneyBy((int)price);
+            MoneyManager.Instance.DecreaseMoneyBy((int)price);
             currentLevel++;
             UpdateText();
+            _successfulPurchaseFeedback.PlayFeedbacks();
         }
         else
         {
+            _failedPurchaseFeedback.PlayFeedbacks();
             Debug.Log("Not enough money");
         }
        

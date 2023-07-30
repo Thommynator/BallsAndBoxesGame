@@ -23,7 +23,7 @@ public class ProgressBar : MonoBehaviour
 
     void Update()
     {
-        var money = UpgradeManager.Instance.GetMoney();
+        var money = MoneyManager.Instance.GetMoney();
         var scale = Mathf.Min(MMMaths.Remap(money, 0, _maxValue, 0, 1), 1);
         _foregroundBar.transform.localScale = new Vector3(scale, 1, 1);
 

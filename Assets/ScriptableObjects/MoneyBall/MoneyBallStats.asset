@@ -19,6 +19,10 @@ MonoBehaviour:
     value: 6
   - key: 2
     value: 400
+  - key: 6
+    value: 5
+  displayName: Money Ball
+  description: Receive some extra money, everytime this ball destroys a box.
   sprite: {fileID: 21300000, guid: 7424b5afc62574b48aa4fb8995ff3750, type: 3}
   scale: {x: 1.2, y: 1.2, z: 1.2}
   color: {r: 0.8862745, g: 0.7019608, b: 0.23529412, a: 1}

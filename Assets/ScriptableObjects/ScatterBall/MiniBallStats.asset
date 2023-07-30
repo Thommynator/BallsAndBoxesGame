@@ -17,6 +17,8 @@ MonoBehaviour:
     value: 8
   - key: 0
     value: 1
+  displayName: Mini Ball
+  description: Little baby balls from mama scatter ball.
   sprite: {fileID: 21300000, guid: 7424b5afc62574b48aa4fb8995ff3750, type: 3}
   scale: {x: 0.7, y: 0.7, z: 0.7}
   color: {r: 0.14509805, g: 0.41568628, b: 0.4117647, a: 1}

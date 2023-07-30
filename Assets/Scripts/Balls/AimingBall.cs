@@ -28,10 +28,10 @@ public class AimingBall: Ball
         _body.velocity = direction * _stats.TryToGetStat(Stat.SPEED);
     }
 
-    private Block FindNearestBlock()
+    private Box FindNearestBlock()
     {
-        var allActiveBlocks = FindObjectsOfType<Block>();
-        Block nearestBlock = null;
+        var allActiveBlocks = FindObjectsOfType<Box>();
+        Box nearestBlock = null;
         float shortestDistanceToTargetSquared = float.MaxValue;
 
         foreach (var block in allActiveBlocks)

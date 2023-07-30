@@ -8,6 +8,8 @@ using UnityEngine;
 public class Stats : ScriptableObject
 {
     public List<StatKeyValuePair> initialStats = new List<StatKeyValuePair>();
+    public string displayName;
+    public string description;
     public Sprite sprite;
     public Vector3 scale;
     public Color color;

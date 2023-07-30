@@ -16,7 +16,7 @@ public class UpgradeFunctions : ScriptableObject
 
     public bool CanUpgrade(int desiredLevel)
     {
-        return desiredLevel < _maxLevel && _priceFunction.GetValueAtLevel(desiredLevel, _maxLevel) <= UpgradeManager.Instance.GetMoney();
+        return desiredLevel < _maxLevel && _priceFunction.GetValueAtLevel(desiredLevel, _maxLevel) <= MoneyManager.Instance.GetMoney();
     }
     public float GetPriceAtLevel(int level)
     {

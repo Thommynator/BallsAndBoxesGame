@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,12 @@ public class BallSpawnButton : MonoBehaviour
 
     [SerializeField]
     private ProgressBar _progressBar;
+
+    [SerializeField]
+    private MMF_Player _successfulPurchaseFeedback;
+
+    [SerializeField]
+    private MMF_Player _failedPurchaseFeedback;
 
     private void Start()
     {
@@ -27,6 +34,12 @@ public class BallSpawnButton : MonoBehaviour
 
     public void TryToSpawnBall()
     {
-        UpgradeManager.Instance.TryToBuyBall(_ball);
+        if (MoneyManager.Instance.TryToBuyBall(_ball))
+        {
+            _successfulPurchaseFeedback.PlayFeedbacks();
+        } else
+        {
+            _failedPurchaseFeedback.PlayFeedbacks();
+        }
     }
 }

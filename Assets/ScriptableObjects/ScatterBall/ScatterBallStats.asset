@@ -21,6 +21,8 @@ MonoBehaviour:
     value: 200
   - key: 5
     value: 2
+  displayName: Scatter Ball
+  description: Every time this ball hits a wall, it will spawn some mini balls.
   sprite: {fileID: 21300000, guid: 7424b5afc62574b48aa4fb8995ff3750, type: 3}
   scale: {x: 1, y: 1, z: 1}
   color: {r: 0.16470589, g: 0.6156863, b: 0.56078434, a: 1}
