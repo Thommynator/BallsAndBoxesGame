@@ -950,9 +950,9 @@ MonoBehaviour:
         DebugActive: 0
         Sfx: {fileID: 0}
         RandomSfx:
-        - {fileID: 8300000, guid: d626c816860a269438fbcd3e7f037b3f, type: 3}
-        - {fileID: 8300000, guid: 1ef2c6ba9d379724196ba11f83e4ee26, type: 3}
-        - {fileID: 8300000, guid: 0b209f56fc2894247b9199048194138e, type: 3}
+        - {fileID: 8300000, guid: 6131d889da3226e48be7a954dd958d17, type: 3}
+        - {fileID: 8300000, guid: 9eac5a1c68790c04ab1c90d5545449f7, type: 3}
+        - {fileID: 8300000, guid: cd18b744b8b0c0649ac056b3a71be2db, type: 3}
         SequentialOrder: 0
         SequentialOrderHoldLast: 0
         SequentialOrderHoldCooldownDuration: 2

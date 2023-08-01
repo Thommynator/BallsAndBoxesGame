@@ -324,7 +324,7 @@ MonoBehaviour:
         MinPitch: 0.9
         MaxPitch: 1.1
         PlaybackTime: {x: 0, y: 0}
-        MmSoundManagerTrack: 0
+        MmSoundManagerTrack: 2
         ID: 0
         AudioGroup: {fileID: 0}
         RecycleAudioSource: {fileID: 0}

@@ -39,10 +39,7 @@ public class Box : MonoBehaviour
     }
     void Start()
     {
-        _health = _startHealth;
-        UpdateVisuals();
         Activate(_startHealth);
-        
     }
 
 
