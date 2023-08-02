@@ -7,6 +7,7 @@ public class ExplosiveBall : Ball
     {
         var contactPoint = collision.contacts[0].point;
         var surroundingBlocks = Physics2D.OverlapCircleAll(contactPoint, _stats.TryToGetStat(Stat.EXPLOSION_RANGE), _dealsDamageTo);
+        PlayDamageSound();
 
         foreach (var blockCollider in surroundingBlocks)
         {

@@ -26,4 +26,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 7424b5afc62574b48aa4fb8995ff3750, type: 3}
   scale: {x: 1.2, y: 1.2, z: 1.2}
   color: {r: 0.8862745, g: 0.7019608, b: 0.23529412, a: 1}
-  hitSounds: []
+  hitSounds:
+  - {fileID: 8300000, guid: c927a206dc7876f44b3b6b3cd631cf84, type: 3}
+  - {fileID: 8300000, guid: 576e43b0e7ac9bb429f71d4136347926, type: 3}
+  - {fileID: 8300000, guid: 9958614e1d098174f997a2c72a36c066, type: 3}

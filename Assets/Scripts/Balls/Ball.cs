@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public abstract class Ball : MonoBehaviour
 
     private int _enteredCollisionFrame = 0;
 
+    private MMF_Player _feedbackPlayer = null;
+
     public Stats GetStats()
     {
         return _stats;
@@ -27,6 +30,8 @@ public abstract class Ball : MonoBehaviour
         transform.localScale = _stats.scale;
         GetComponentInChildren<SpriteRenderer>().sprite = _stats.sprite;
         GetComponentInChildren<SpriteRenderer>().color = _stats.color;
+
+        InitializeSoundFeedback();
 
         _body.AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * _stats.TryToGetStat(Stat.SPEED), ForceMode2D.Impulse);
     
@@ -89,12 +94,30 @@ public abstract class Ball : MonoBehaviour
 
     protected virtual void ApplyDamageEffect(Collision2D collision)
     {
+        PlayDamageSound();
         collision.gameObject.TryGetComponent<Box>(out var block);
         block?.DecreaseHealthBy((int)_stats.TryToGetStat(Stat.HIT_DAMAGE));
     }
 
+    protected virtual void PlayDamageSound()
+    {
+        _feedbackPlayer?.PlayFeedbacks();
+    }
+
     protected bool IsInLayerMask(int layer, LayerMask layerMask) {
         return layerMask == (layerMask | (1 << layer));
+    }
+
+    private void InitializeSoundFeedback()
+    {
+        if (_stats.hitSounds.Count > 0)
+        {
+            _feedbackPlayer = gameObject.AddComponent<MMF_Player>();
+            MMF_MMSoundManagerSound soundFeedback = new MMF_MMSoundManagerSound();
+            soundFeedback.RandomSfx = _stats.hitSounds.ToArray();
+            _feedbackPlayer.AddFeedback(soundFeedback);
+            _feedbackPlayer.Initialization();
+        }
     }
 
 }
