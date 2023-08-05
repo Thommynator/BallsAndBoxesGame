@@ -33,16 +33,26 @@ public class Box : MonoBehaviour
     [SerializeField]
     private MMF_Player _closeBoxFeedback;
 
+    [SerializeField]
+    private MMF_Player _hitBoxFeedback;
+
+    [SerializeField]
+    private ParticleSystem _hitParticles;
+
+    private GameObject _wrapper;
+
+    private Collider2D _collider;
+
+
+
     private void Awake()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _wrapper = transform.Find("Wrapper").gameObject;
+        _collider = GetComponent<Collider2D>();
     }
     void Start()
     {
-        _health = _startHealth;
-        UpdateVisuals();
-        Activate(_startHealth);
-        
     }
 
 
@@ -56,6 +66,12 @@ public class Box : MonoBehaviour
     public BoxStatus GetBoxStatus()
     {
         return _boxStatus;
+    }
+
+    public void Hide()
+    {
+        _wrapper.SetActive(false);
+        _collider.enabled = false;
     }
 
     public void Activate(int startHealth)
@@ -90,6 +106,7 @@ public class Box : MonoBehaviour
     private void OnMouseDown()
     {
         _clickOnBoxFeedback.PlayFeedbacks();
+        _hitBoxFeedback.PlayFeedbacks();
         DecreaseHealthBy(MoneyManager.Instance.GetClickDamange());
     }
 
@@ -109,6 +126,17 @@ public class Box : MonoBehaviour
     {
         int colors = _colors.Count;
         _spriteRenderer.color = _colors[_health % colors];
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            _hitParticles.transform.position = collision.GetContact(0).point;
+            _hitParticles.transform.rotation = Quaternion.LookRotation(Vector3.forward, collision.GetContact(0).normal);
+            _hitParticles.Play();
+            _hitBoxFeedback.PlayFeedbacks();
+        }
     }
 
 }

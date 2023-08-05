@@ -1,5 +1,5 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using System.Linq;
 
 public class AimingBall: Ball
 {
@@ -30,20 +30,20 @@ public class AimingBall: Ball
 
     private Box FindNearestBlock()
     {
-        var allActiveBlocks = FindObjectsOfType<Box>();
-        Box nearestBlock = null;
+        var allActiveBoxes = LevelManager.Instance.GetCurrentBoxes().FindAll(box => box.GetBoxStatus() == BoxStatus.ALIVE).ToList();
+        Box nearestBox = null;
         float shortestDistanceToTargetSquared = float.MaxValue;
 
-        foreach (var block in allActiveBlocks)
+        foreach (var box in allActiveBoxes)
         {
-            var distanceToTargetSquared = (block.transform.position - transform.position).sqrMagnitude;
+            var distanceToTargetSquared = (box.transform.position - transform.position).sqrMagnitude;
             if (distanceToTargetSquared < shortestDistanceToTargetSquared)
             {
-                nearestBlock = block;
+                nearestBox = box;
                 shortestDistanceToTargetSquared = distanceToTargetSquared;
             }
         }
-        return nearestBlock;
+        return nearestBox;
     }
 
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using MoreMountains.Feedbacks;
+using System;
 
 public class Upgrade : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Upgrade : MonoBehaviour
             MoneyManager.Instance.DecreaseMoneyBy((int)price);
             currentLevel++;
             UpdateText();
+            EventManager.Instance.Upgrade();
             _successfulPurchaseFeedback.PlayFeedbacks();
         }
         else

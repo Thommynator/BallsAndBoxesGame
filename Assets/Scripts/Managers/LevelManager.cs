@@ -28,45 +28,44 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        DisableAllBoxes();
-        EnableBlocksOfCurrentLevel();
+        HideAllBoxes();
+        EnableBoxesOfCurrentLevel();
         CheckRemainingBoxes();
     }
 
     [ContextMenu("CheckRemainingBlocks")]
     public void CheckRemainingBoxes()
     {
-        if (!GetBoxesFor(_currentLevel).Find(block => block.GetBoxStatus() == BoxStatus.ALIVE))
+        if (!GetBoxesFor(_currentLevel).Find(box => box.GetBoxStatus() == BoxStatus.ALIVE))
         {
             IncreaseLevel();
         }
     }
 
 
-    private void DisableAllBoxes()
+    private void HideAllBoxes()
     {
         for (int level = 0; level < _levels.Count; level++)
         {
-            foreach (var block in GetBoxesFor(level))
+            foreach (var box in GetBoxesFor(level))
             {
-                block.gameObject.SetActive(false);
+                box.Hide();
             }
         }
     }
 
-    public void DisableBoxesOfCurrentLevel()
+    public void HideBoxesOfCurrentLevel()
     {
         foreach (var block in GetBoxesFor(_currentLevel))
         {
-            block.gameObject.SetActive(false);
+            block.Hide();
         }
     }
 
-    public void EnableBlocksOfCurrentLevel()
+    public void EnableBoxesOfCurrentLevel()
     {
         foreach (var box in GetBoxesFor(_currentLevel))
         {
-            box.gameObject.SetActive(true);
             box.Activate(_currentLevel+1);
         }
     }
@@ -77,11 +76,16 @@ public class LevelManager : MonoBehaviour
         return _levels[level % levels].GetComponentsInChildren<Box>(true).ToList();
     }
 
+    public List<Box> GetCurrentBoxes()
+    {
+        return GetBoxesFor(_currentLevel);
+    } 
+
     public void IncreaseLevel()
     {
-        DisableBoxesOfCurrentLevel();
+        HideBoxesOfCurrentLevel();
         _currentLevel++;
-        EnableBlocksOfCurrentLevel();
+        EnableBoxesOfCurrentLevel();
     }
 
 

@@ -14,6 +14,7 @@ public class MiniBall: Ball
 
     protected override void ApplyDamageEffect(Collision2D collision)
     {
+        base.PlayDamageSound();
         collision.gameObject.TryGetComponent<Box>(out var block);
         block?.DecreaseHealthBy(Mathf.FloorToInt(_stats.TryToGetStat(Stat.HIT_DAMAGE)));
     }

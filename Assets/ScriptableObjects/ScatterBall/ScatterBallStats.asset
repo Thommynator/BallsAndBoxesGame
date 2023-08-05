@@ -18,7 +18,7 @@ MonoBehaviour:
   - key: 1
     value: 4
   - key: 2
-    value: 200
+    value: 100
   - key: 5
     value: 2
   displayName: Scatter Ball
@@ -26,4 +26,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 7424b5afc62574b48aa4fb8995ff3750, type: 3}
   scale: {x: 1, y: 1, z: 1}
   color: {r: 0.16470589, g: 0.6156863, b: 0.56078434, a: 1}
-  hitSounds: []
+  hitSounds:
+  - {fileID: 8300000, guid: e6fc667fe8dd9394f807f88e26add98a, type: 3}
+  - {fileID: 8300000, guid: 2bd91ec585dad6745acea5251ace4e09, type: 3}
+  - {fileID: 8300000, guid: 686e2050d21bd2b499f10f114e1e251c, type: 3}
