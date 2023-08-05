@@ -18,7 +18,7 @@ MonoBehaviour:
   - key: 1
     value: 5
   - key: 2
-    value: 10
+    value: 5
   displayName: Simple Ball
   description: It's really simple. It just bounces arround and deals some damage.
   sprite: {fileID: 21300000, guid: 7424b5afc62574b48aa4fb8995ff3750, type: 3}
