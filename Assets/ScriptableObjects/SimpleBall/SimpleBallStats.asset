@@ -21,9 +21,8 @@ MonoBehaviour:
     value: 5
   displayName: Simple Ball
   description: It's really simple. It just bounces arround and deals some damage.
-  sprite: {fileID: 21300000, guid: 7424b5afc62574b48aa4fb8995ff3750, type: 3}
+  sprite: {fileID: 21300000, guid: 7e7759e379442024d973ce4f9b6b23ee, type: 3}
   scale: {x: 0.8, y: 0.8, z: 0.8}
-  color: {r: 0.8862745, g: 0.7019608, b: 0.23921569, a: 1}
   hitSounds:
   - {fileID: 8300000, guid: e5ffc2d5dd58df94ab4de16dda4c70eb, type: 3}
   - {fileID: 8300000, guid: da4719518f0522d45a57f4efecf52597, type: 3}

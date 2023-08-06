@@ -20,9 +20,8 @@ public class Box : MonoBehaviour
     [SerializeField]    
     private List<Color> _colors;
 
-    private SpriteRenderer _spriteRenderer;
-
-    private BoxStatus _boxStatus;
+    [SerializeField]
+    private BoxSO _boxSO;
 
     [SerializeField]
     private MMF_Player _clickOnBoxFeedback;
@@ -42,6 +41,11 @@ public class Box : MonoBehaviour
     [SerializeField]
     private ParticleSystem _hitParticles;
 
+
+    private SpriteRenderer _spriteRenderer;
+
+    private BoxStatus _boxStatus;
+
     private GameObject _wrapper;
 
     private Collider2D _collider;
@@ -51,6 +55,7 @@ public class Box : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer.sprite = _boxSO.GetRandomSprite();
         _wrapper = transform.Find("Wrapper").gameObject;
         _collider = GetComponent<Collider2D>();
     }
