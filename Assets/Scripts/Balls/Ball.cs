@@ -29,7 +29,6 @@ public abstract class Ball : MonoBehaviour
         _body = GetComponent<Rigidbody2D>();
         transform.localScale = _stats.scale;
         GetComponentInChildren<SpriteRenderer>().sprite = _stats.sprite;
-        GetComponentInChildren<SpriteRenderer>().color = _stats.color;
 
         InitializeSoundFeedback();
 

@@ -12,7 +12,6 @@ public class Stats : ScriptableObject
     public string description;
     public Sprite sprite;
     public Vector3 scale;
-    public Color color;
     public List<AudioClip> hitSounds;
 
     private Dictionary<Stat, float> _stats = new Dictionary<Stat, float>();

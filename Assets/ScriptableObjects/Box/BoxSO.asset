@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b5b006ec8dce04885398fbd11a8136, type: 3}
+  m_Name: BoxSO
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 815791b4d15b4984996f73916c1844fc, type: 3}
+  - {fileID: 21300000, guid: 67c30522512084847bdf45f930d4574e, type: 3}
+  - {fileID: 21300000, guid: 3fba298ae127786428f955d8d45b8804, type: 3}
+  - {fileID: 21300000, guid: 9fb5bef0b9af99c4bb6bf604171ab3b3, type: 3}

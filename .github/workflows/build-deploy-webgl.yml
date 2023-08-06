@@ -50,9 +50,8 @@ jobs:
         with:
           versioning: Semantic
           targetPlatform: WebGL
-          unityVersion: 2022.1.16f1
-          # TODO Change the buildName to the game name                    
-          buildName: FallingBlocks
+          unityVersion: 2022.1.16f1               
+          buildName: ${{ secrets.PROJECT_NAME }}
           buildsPath: build
           
       - name: Print Version Number
@@ -86,8 +85,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: html5
-          # TODO Change game name here
-          ITCH_GAME: falling-blocks
+          ITCH_GAME: ${{ secrets.PROJECT_NAME }}
           ITCH_USER: Exenter
           PACKAGE: build/WebGL
           VERSION: ${{ steps.unityBuild.outputs.buildVersion }}

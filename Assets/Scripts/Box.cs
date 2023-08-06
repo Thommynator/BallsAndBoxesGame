@@ -20,9 +20,8 @@ public class Box : MonoBehaviour
     [SerializeField]    
     private List<Color> _colors;
 
-    private SpriteRenderer _spriteRenderer;
-
-    private BoxStatus _boxStatus;
+    [SerializeField]
+    private BoxSO _boxSO;
 
     [SerializeField]
     private MMF_Player _clickOnBoxFeedback;
@@ -37,7 +36,15 @@ public class Box : MonoBehaviour
     private MMF_Player _hitBoxFeedback;
 
     [SerializeField]
+    private MMF_Player _floatingMoneyFeedback;
+
+    [SerializeField]
     private ParticleSystem _hitParticles;
+
+
+    private SpriteRenderer _spriteRenderer;
+
+    private BoxStatus _boxStatus;
 
     private GameObject _wrapper;
 
@@ -48,6 +55,7 @@ public class Box : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteRenderer.sprite = _boxSO.GetRandomSprite();
         _wrapper = transform.Find("Wrapper").gameObject;
         _collider = GetComponent<Collider2D>();
     }
@@ -85,7 +93,9 @@ public class Box : MonoBehaviour
     {
         var realDamage = Mathf.Min(damage, _health);
         MoneyManager.Instance.IncreaseMoneyBy(realDamage);
+        _floatingMoneyFeedback.PlayFeedbacks(_floatingMoneyFeedback.transform.position, realDamage);
         _health -= realDamage;
+
         if (IsDead())
         {
             _closeBoxFeedback.PlayFeedbacks();
@@ -107,7 +117,8 @@ public class Box : MonoBehaviour
     {
         _clickOnBoxFeedback.PlayFeedbacks();
         _hitBoxFeedback.PlayFeedbacks();
-        DecreaseHealthBy(MoneyManager.Instance.GetClickDamange());
+        var clickDamage = MoneyManager.Instance.GetClickDamange();
+        DecreaseHealthBy(clickDamage);
     }
 
     private bool IsDead()

@@ -22,7 +22,6 @@ public class BallSpawnButton : MonoBehaviour
     {
         var imageOnButton = transform.Find("Button/BallSprite").GetComponent<Image>();
         imageOnButton.sprite = _ball.GetStats().sprite;
-        imageOnButton.color = _ball.GetStats().color;
         imageOnButton.transform.localScale = _ball.GetStats().scale;
     }
 

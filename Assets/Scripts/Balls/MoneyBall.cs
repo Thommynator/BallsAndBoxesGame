@@ -1,7 +1,11 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class MoneyBall : Ball
 {
+
+    [SerializeField]
+    private MMF_Player _moneyFeedback;
 
     protected override void ApplyDamageEffect(Collision2D collision)
     {
@@ -10,6 +14,7 @@ public class MoneyBall : Ball
         block?.DecreaseHealthBy((int)_stats.TryToGetStat(Stat.HIT_DAMAGE));
 
         var extraMoney = (int)GetStats().TryToGetStat(Stat.MONEY_ON_DEATH);
+        _moneyFeedback.PlayFeedbacks(_moneyFeedback.transform.position, extraMoney);
         Debug.Log($"+{extraMoney} extra money!");
         MoneyManager.Instance.IncreaseMoneyBy(extraMoney);
     }
