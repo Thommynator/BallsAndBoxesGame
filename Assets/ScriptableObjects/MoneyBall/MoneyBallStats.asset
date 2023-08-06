@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialStats:
   - key: 0
-    value: 5
+    value: 2
   - key: 1
     value: 6
   - key: 2

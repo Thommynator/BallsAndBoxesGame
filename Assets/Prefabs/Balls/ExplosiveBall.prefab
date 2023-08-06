@@ -90,6 +90,9 @@ MonoBehaviour:
   _dealsDamageTo:
     serializedVersion: 2
     m_Bits: 128
+  _affectedByExplosionForce:
+    serializedVersion: 2
+    m_Bits: 64
   _explosionParticles: {fileID: 3985240118931085375}
   _explosionFeedback: {fileID: 3874323259484654908}
 --- !u!1 &4244261425536008537

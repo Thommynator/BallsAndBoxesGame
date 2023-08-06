@@ -5,6 +5,9 @@ public class ExplosiveBall : Ball
 {
 
     [SerializeField]
+    protected LayerMask _affectedByExplosionForce;
+
+    [SerializeField]
     private ParticleSystem _explosionParticles;
 
     [SerializeField]   
@@ -41,6 +44,21 @@ public class ExplosiveBall : Ball
             blockCollider.TryGetComponent(out Box block);
             block?.DecreaseHealthBy((int)_stats.TryToGetStat(Stat.EXPLOSION_DAMAGE)); 
         }
+
+        PushOtherObjectsAround(contactPoint);
+    }
+
+    private void PushOtherObjectsAround(Vector3 originPosition)
+    {
+        var surroundingObjects = Physics2D.OverlapCircleAll(originPosition, _stats.TryToGetStat(Stat.EXPLOSION_RANGE), _affectedByExplosionForce);
+
+        foreach(var surroundingObject in surroundingObjects)
+        {
+            surroundingObject.TryGetComponent(out Rigidbody2D rb);
+            if (rb != null) {
+                AddExplosionForce(rb, _stats.TryToGetStat(Stat.EXPLOSION_DAMAGE), originPosition, _stats.TryToGetStat(Stat.EXPLOSION_RANGE));
+            }
+        }
     }
 
     private void PlayExplosionParticleEffect(Vector3 position)
@@ -55,6 +73,30 @@ public class ExplosiveBall : Ball
         var duration = _stats.TryToGetStat(Stat.EXPLOSION_RANGE) / main.startSpeed.constant;
         main.duration = duration;
         main.startLifetime = duration;
+    }
+
+    private void AddExplosionForce(Rigidbody2D rb, float explosionForce, Vector2 explosionPosition, float explosionRadius, float upwardsModifier = 0.0F, ForceMode2D mode = ForceMode2D.Impulse)
+    {
+        var explosionDir = rb.position - explosionPosition;
+        var explosionDistance = explosionDir.magnitude;
+
+        // Normalize without computing magnitude again
+        if (upwardsModifier == 0)
+            explosionDir /= explosionDistance;
+        else
+        {
+            // From Rigidbody.AddExplosionForce doc:
+            // If you pass a non-zero value for the upwardsModifier parameter, the direction
+            // will be modified by subtracting that value from the Y component of the centre point.
+            explosionDir.y += upwardsModifier;
+            explosionDir.Normalize();
+        }
+
+        var explosionDistanceNorm = explosionDistance / explosionRadius;
+        var force = Mathf.Lerp(explosionForce, 0, explosionDistanceNorm);
+        var forceMultiplier = 10.0f;
+
+        rb.AddForce(force * forceMultiplier * explosionDir.normalized, mode);
     }
 
 
