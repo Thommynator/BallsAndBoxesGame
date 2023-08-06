@@ -73,7 +73,7 @@ public class LevelManager : MonoBehaviour
     private List<Box> GetBoxesFor(int level)
     {
         var levels = _levels.Count;
-        return _levels[level % levels].GetComponentsInChildren<Box>(true).ToList();
+        return _levels[(level % levels)].GetComponentsInChildren<Box>(true).ToList();
     }
 
     public List<Box> GetCurrentBoxes()

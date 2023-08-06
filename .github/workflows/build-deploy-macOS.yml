@@ -51,8 +51,7 @@ jobs:
           versioning: Semantic
           targetPlatform: StandaloneOSX   
           unityVersion: 2022.1.16f1
-          # TODO Change the buildName to the game name
-          buildName: FallingBlocks
+          buildName: ${{ secrets.PROJECT_NAME }}
           buildsPath: build
           
       - name: Print Version Number
@@ -86,8 +85,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: mac
-          # TODO Change game name here
-          ITCH_GAME: falling-blocks
+          ITCH_GAME: ${{ secrets.PROJECT_NAME }}
           ITCH_USER: Exenter
           PACKAGE: build/StandaloneOSX
           VERSION: ${{ steps.unityBuild.outputs.buildVersion }}
