@@ -37,6 +37,9 @@ public class Box : MonoBehaviour
     private MMF_Player _hitBoxFeedback;
 
     [SerializeField]
+    private MMF_Player _floatingMoneyFeedback;
+
+    [SerializeField]
     private ParticleSystem _hitParticles;
 
     private GameObject _wrapper;
@@ -85,7 +88,9 @@ public class Box : MonoBehaviour
     {
         var realDamage = Mathf.Min(damage, _health);
         MoneyManager.Instance.IncreaseMoneyBy(realDamage);
+        _floatingMoneyFeedback.PlayFeedbacks(_floatingMoneyFeedback.transform.position, realDamage);
         _health -= realDamage;
+
         if (IsDead())
         {
             _closeBoxFeedback.PlayFeedbacks();
@@ -107,7 +112,8 @@ public class Box : MonoBehaviour
     {
         _clickOnBoxFeedback.PlayFeedbacks();
         _hitBoxFeedback.PlayFeedbacks();
-        DecreaseHealthBy(MoneyManager.Instance.GetClickDamange());
+        var clickDamage = MoneyManager.Instance.GetClickDamange();
+        DecreaseHealthBy(clickDamage);
     }
 
     private bool IsDead()
