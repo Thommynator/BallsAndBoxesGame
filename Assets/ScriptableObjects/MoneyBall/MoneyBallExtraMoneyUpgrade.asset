@@ -68,4 +68,4 @@ MonoBehaviour:
       m_RotationOrder: 4
     _roundType: 0
     _mapToZero: 1
-    _mapToOne: 20
+    _mapToOne: 10
