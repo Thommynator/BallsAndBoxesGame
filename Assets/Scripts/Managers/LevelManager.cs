@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
 
     [SerializeField]
-    private int _currentLevel;
+    private int _currentLevelIndex;
 
     [SerializeField]
     private List<GameObject> _levels;
@@ -36,10 +36,20 @@ public class LevelManager : MonoBehaviour
     [ContextMenu("CheckRemainingBlocks")]
     public void CheckRemainingBoxes()
     {
-        if (!GetBoxesFor(_currentLevel).Find(box => box.GetBoxStatus() == BoxStatus.ALIVE))
+        if (!GetBoxesFor(_currentLevelIndex).Find(box => box.GetBoxStatus() == BoxStatus.ALIVE))
         {
             IncreaseLevel();
         }
+    }
+
+    public List<Box> GetCurrentBoxes()
+    {
+        return GetBoxesFor(_currentLevelIndex);
+    }
+
+    public int GetLevelNumber()
+    {
+        return _currentLevelIndex + 1;
     }
 
 
@@ -54,19 +64,19 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void HideBoxesOfCurrentLevel()
+    private void HideBoxesOfCurrentLevel()
     {
-        foreach (var block in GetBoxesFor(_currentLevel))
+        foreach (var block in GetBoxesFor(_currentLevelIndex))
         {
             block.Hide();
         }
     }
 
-    public void EnableBoxesOfCurrentLevel()
+    private void EnableBoxesOfCurrentLevel()
     {
-        foreach (var box in GetBoxesFor(_currentLevel))
+        foreach (var box in GetBoxesFor(_currentLevelIndex))
         {
-            box.Activate(_currentLevel+1);
+            box.Activate(_currentLevelIndex+1);
         }
     }
 
@@ -76,15 +86,10 @@ public class LevelManager : MonoBehaviour
         return _levels[(level % levels)].GetComponentsInChildren<Box>(true).ToList();
     }
 
-    public List<Box> GetCurrentBoxes()
-    {
-        return GetBoxesFor(_currentLevel);
-    } 
-
-    public void IncreaseLevel()
+    private void IncreaseLevel()
     {
         HideBoxesOfCurrentLevel();
-        _currentLevel++;
+        _currentLevelIndex++;
         EnableBoxesOfCurrentLevel();
     }
 

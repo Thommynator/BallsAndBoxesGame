@@ -31,7 +31,6 @@ public abstract class Ball : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().sprite = _stats.sprite;
 
         InitializeSoundFeedback();
-
         _body.AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * _stats.TryToGetStat(Stat.SPEED), ForceMode2D.Impulse);
     
         StartCoroutine(SpeedUpToDesired());
@@ -88,7 +87,9 @@ public abstract class Ball : MonoBehaviour
     protected virtual void Bounce(Collision2D collision) {
         var normalVector = collision.contacts[0].normal;
         var newDirection = Vector3.Reflect(_lastVelocity, collision.contacts[0].normal).normalized;
-        _body.velocity = newDirection * _stats.TryToGetStat(Stat.SPEED);
+        var noise = new Vector3(1, 1, 0) * Random.Range(-0.1f, 0.1f);
+        
+        _body.velocity = (newDirection + noise) * _stats.TryToGetStat(Stat.SPEED);
     }
 
     protected virtual void ApplyDamageEffect(Collision2D collision)
