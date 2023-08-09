@@ -15,15 +15,37 @@ public class SettingsWindow : MonoBehaviour
     private Slider _musicVolumeSlider;
 
     [SerializeField]
+    private Slider _sfxVolumeSlider;
+
+    [SerializeField]
     private MMF_Player _openPanelFeedback;
 
     [SerializeField]
     private MMF_Player _closePanelFeedback;
 
+    [SerializeField]
+    private Image _musicImage;
+
+    [SerializeField]
+    private Sprite _musicOnSprite;
+
+    [SerializeField]
+    private Sprite _musicOffSprite;
+
+    [SerializeField]
+    private Image _sfxImage;
+
+    [SerializeField]
+    private Sprite _sfxOnSprite;
+
+    [SerializeField]
+    private Sprite _musicOnOffSprite;
+
     void Start()
     {
         _settingsPanel.SetActive(false);
         SetMusicVolume();
+        SetSfxVolume();
     }
 
     // Update is called once per frame
@@ -37,29 +59,37 @@ public class SettingsWindow : MonoBehaviour
         MMSoundManager.Current.SetVolumeMusic(_musicVolumeSlider.value);
     }
 
-    public void ToggleSfx()
+    public void SetSfxVolume()
     {
-
-        if (!MMSoundManager.Current.IsMuted(MMSoundManager.MMSoundManagerTracks.Sfx)) // note: it's negated, because isMuted returns for some reason the inverted value?!
-        {
-            MMSoundManager.Current.UnmuteSfx();
-        } else
-        {
-            MMSoundManager.Current.MuteSfx();
-        }
+        MMSoundManager.Current.SetVolumeSfx(_sfxVolumeSlider.value);
     }
 
     public void ToggleMusic()
     {
         if (!MMSoundManager.Current.IsMuted(MMSoundManager.MMSoundManagerTracks.Music)) // note: it's negated, because isMuted returns for some reason the inverted value?!
         {
-            Debug.Log("Unmuting music");
             MMSoundManager.Current.UnmuteMusic();
+            _musicImage.sprite = _musicOnSprite;
+        }
+        else
+        {   
+            MMSoundManager.Current.MuteMusic();
+            _musicImage.sprite = _musicOffSprite;
+        }
+    }
+
+    public void ToggleSfx()
+    {
+
+        if (!MMSoundManager.Current.IsMuted(MMSoundManager.MMSoundManagerTracks.Sfx)) // note: it's negated, because isMuted returns for some reason the inverted value?!
+        {
+            MMSoundManager.Current.UnmuteSfx();
+            _sfxImage.sprite = _sfxOnSprite;
         }
         else
         {
-            Debug.Log("Muting music");
-            MMSoundManager.Current.MuteMusic();
+            MMSoundManager.Current.MuteSfx();
+            _sfxImage.sprite = _musicOnOffSprite;
         }
     }
 

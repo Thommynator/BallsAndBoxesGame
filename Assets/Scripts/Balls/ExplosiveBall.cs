@@ -94,7 +94,7 @@ public class ExplosiveBall : Ball
 
         var explosionDistanceNorm = explosionDistance / explosionRadius;
         var force = Mathf.Lerp(explosionForce, 0, explosionDistanceNorm);
-        var forceMultiplier = 10.0f;
+        var forceMultiplier = 6.0f;
 
         rb.AddForce(force * forceMultiplier * explosionDir.normalized, mode);
     }

@@ -16,7 +16,7 @@ MonoBehaviour:
   - key: 0
     value: 1
   - key: 1
-    value: 5
+    value: 6
   - key: 2
     value: 5
   displayName: Simple Ball

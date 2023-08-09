@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb248f618cfd4e94b809a9f13b3c51fa, type: 3}
   m_Name: SimpleBallSpeedUpgrade
   m_EditorClassIdentifier: 
-  _maxLevel: 10
+  _maxLevel: 20
   _priceFunction:
     _function:
       serializedVersion: 2
@@ -39,8 +39,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     _roundType: 0
-    _mapToZero: 50
-    _mapToOne: 500
+    _mapToZero: 30
+    _mapToOne: 10000
   _effectFunction:
     _function:
       serializedVersion: 2
@@ -48,12 +48,12 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: -0.9208885
-        outSlope: -0.9208885
+        inSlope: -2.215887
+        outSlope: -2.215887
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.032246716
+        outWeight: 0.029315198
       - serializedVersion: 3
         time: 1
         value: 0
@@ -67,5 +67,5 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     _roundType: 3
-    _mapToZero: 0.1
-    _mapToOne: 1
+    _mapToZero: 0.5
+    _mapToOne: 2

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialStats:
   - key: 1
-    value: 8
+    value: 5
   - key: 0
     value: 1
   displayName: Mini Ball

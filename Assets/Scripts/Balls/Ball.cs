@@ -31,8 +31,8 @@ public abstract class Ball : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().sprite = _stats.sprite;
 
         InitializeSoundFeedback();
-        _body.AddForce(new Vector2(1,0).normalized * _stats.TryToGetStat(Stat.SPEED), ForceMode2D.Impulse);
-        //_body.AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * _stats.TryToGetStat(Stat.SPEED), ForceMode2D.Impulse);
+        //_body.AddForce(new Vector2(1,0).normalized * _stats.TryToGetStat(Stat.SPEED), ForceMode2D.Impulse);
+        _body.AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * _stats.TryToGetStat(Stat.SPEED), ForceMode2D.Impulse);
 
         StartCoroutine(SpeedUpToDesired());
     }
@@ -107,7 +107,6 @@ public abstract class Ball : MonoBehaviour
 
         if (dotX > similarityThreshold || dotY > similarityThreshold)
         {
-            print($"Applied noise because dotX {dotX} and dotY {dotY}");
             return new Vector3(1, 1, 0) * Random.Range(-noiseStrength, noiseStrength);
         }
 

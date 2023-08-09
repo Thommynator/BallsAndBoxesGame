@@ -93,6 +93,11 @@ public class LevelManager : MonoBehaviour
         EnableBoxesOfCurrentLevel();
     }
 
+    public void LeaveGame()
+    {
+        Application.Quit();
+    }
+
 
 
 }

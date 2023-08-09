@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb248f618cfd4e94b809a9f13b3c51fa, type: 3}
   m_Name: MoneyBallHitDamageUpgrade
   m_EditorClassIdentifier: 
-  _maxLevel: 10
+  _maxLevel: 15
   _priceFunction:
     _function:
       serializedVersion: 2
@@ -40,7 +40,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _roundType: 0
     _mapToZero: 200
-    _mapToOne: 2000
+    _mapToOne: 25000
   _effectFunction:
     _function:
       serializedVersion: 2
