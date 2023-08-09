@@ -15,7 +15,6 @@ public class MoneyBall : Ball
 
         var extraMoney = (int)GetStats().TryToGetStat(Stat.MONEY_ON_DEATH);
         _moneyFeedback.PlayFeedbacks(_moneyFeedback.transform.position, extraMoney);
-        Debug.Log($"+{extraMoney} extra money!");
         MoneyManager.Instance.IncreaseMoneyBy(extraMoney);
     }
 

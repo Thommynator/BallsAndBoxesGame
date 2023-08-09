@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb248f618cfd4e94b809a9f13b3c51fa, type: 3}
   m_Name: ScatterBallMiniBallsUpgrade
   m_EditorClassIdentifier: 
-  _maxLevel: 3
+  _maxLevel: 5
   _priceFunction:
     _function:
       serializedVersion: 2
@@ -40,7 +40,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _roundType: 0
     _mapToZero: 150
-    _mapToOne: 2000
+    _mapToOne: 25000
   _effectFunction:
     _function:
       serializedVersion: 2
@@ -66,6 +66,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _roundType: 3
+    _roundType: 1
     _mapToZero: 0
     _mapToOne: 1

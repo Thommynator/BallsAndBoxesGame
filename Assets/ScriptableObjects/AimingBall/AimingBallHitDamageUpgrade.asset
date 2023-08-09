@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb248f618cfd4e94b809a9f13b3c51fa, type: 3}
   m_Name: AimingBallHitDamageUpgrade
   m_EditorClassIdentifier: 
-  _maxLevel: 10
+  _maxLevel: 20
   _priceFunction:
     _function:
       serializedVersion: 2
@@ -40,7 +40,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _roundType: 0
     _mapToZero: 500
-    _mapToOne: 5000
+    _mapToOne: 20000
   _effectFunction:
     _function:
       serializedVersion: 2

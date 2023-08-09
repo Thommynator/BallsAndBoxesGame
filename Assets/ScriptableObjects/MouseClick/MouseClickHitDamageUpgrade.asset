@@ -40,7 +40,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _roundType: 0
     _mapToZero: 100
-    _mapToOne: 5000
+    _mapToOne: 15000
   _effectFunction:
     _function:
       serializedVersion: 2
@@ -66,6 +66,6 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _roundType: 1
-    _mapToZero: 2
-    _mapToOne: 1
+    _roundType: 0
+    _mapToZero: 1
+    _mapToOne: 2

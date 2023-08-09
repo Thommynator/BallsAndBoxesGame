@@ -31,9 +31,9 @@ public abstract class Ball : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().sprite = _stats.sprite;
 
         InitializeSoundFeedback();
-
+        //_body.AddForce(new Vector2(1,0).normalized * _stats.TryToGetStat(Stat.SPEED), ForceMode2D.Impulse);
         _body.AddForce(new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f)).normalized * _stats.TryToGetStat(Stat.SPEED), ForceMode2D.Impulse);
-    
+
         StartCoroutine(SpeedUpToDesired());
     }
 
@@ -88,7 +88,29 @@ public abstract class Ball : MonoBehaviour
     protected virtual void Bounce(Collision2D collision) {
         var normalVector = collision.contacts[0].normal;
         var newDirection = Vector3.Reflect(_lastVelocity, collision.contacts[0].normal).normalized;
-        _body.velocity = newDirection * _stats.TryToGetStat(Stat.SPEED);
+
+        var noise = ReflectionNoise(newDirection, 0.5f);
+        _body.velocity = (newDirection + noise).normalized * _stats.TryToGetStat(Stat.SPEED);
+
+    }
+
+    /**
+     * If the reflection direction is too close to the x or y axis, add some noise to it
+     * to prevent that the ball is stuck in a loop.
+     */
+    private Vector3 ReflectionNoise(Vector3 reflectionDirection, float noiseStrength)
+    {
+        reflectionDirection = reflectionDirection.normalized;
+        float dotX = Mathf.Abs(Vector3.Dot(reflectionDirection, Vector3.right));
+        float dotY = Mathf.Abs(Vector3.Dot(reflectionDirection, Vector3.up));
+        float similarityThreshold = 0.95f; // 1 means it's aligned with the axis, 0 is perpendicular
+
+        if (dotX > similarityThreshold || dotY > similarityThreshold)
+        {
+            return new Vector3(1, 1, 0) * Random.Range(-noiseStrength, noiseStrength);
+        }
+
+        return Vector3.zero;
     }
 
     protected virtual void ApplyDamageEffect(Collision2D collision)
