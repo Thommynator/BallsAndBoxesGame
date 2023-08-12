@@ -70,11 +70,13 @@ public class SettingsWindow : MonoBehaviour
         {
             MMSoundManager.Current.UnmuteMusic();
             _musicImage.sprite = _musicOnSprite;
+            _musicVolumeSlider.interactable = true;
         }
         else
         {   
             MMSoundManager.Current.MuteMusic();
             _musicImage.sprite = _musicOffSprite;
+            _musicVolumeSlider.interactable = false;
         }
     }
 
@@ -85,11 +87,13 @@ public class SettingsWindow : MonoBehaviour
         {
             MMSoundManager.Current.UnmuteSfx();
             _sfxImage.sprite = _sfxOnSprite;
+            _sfxVolumeSlider.interactable = true;
         }
         else
         {
             MMSoundManager.Current.MuteSfx();
             _sfxImage.sprite = _musicOnOffSprite;
+            _sfxVolumeSlider.interactable = false;
         }
     }
 
