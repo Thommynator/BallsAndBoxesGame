@@ -86,12 +86,14 @@ public class SettingsWindow : MonoBehaviour
         if (!MMSoundManager.Current.IsMuted(MMSoundManager.MMSoundManagerTracks.Sfx)) // note: it's negated, because isMuted returns for some reason the inverted value?!
         {
             MMSoundManager.Current.UnmuteSfx();
+            MMSoundManager.Current.UnmuteUI();
             _sfxImage.sprite = _sfxOnSprite;
             _sfxVolumeSlider.interactable = true;
         }
         else
         {
             MMSoundManager.Current.MuteSfx();
+            MMSoundManager.Current.MuteUI();
             _sfxImage.sprite = _musicOnOffSprite;
             _sfxVolumeSlider.interactable = false;
         }
