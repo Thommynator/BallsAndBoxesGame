@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static UnityEditor.Progress;
 
 public class StatsVisualizer : MonoBehaviour
 {
@@ -17,7 +16,7 @@ public class StatsVisualizer : MonoBehaviour
     [SerializeField]
     private GameObject _content;
 
-    void Start()
+    void Awake()
     {
         foreach (var item in _stats.GetStats())
         {
