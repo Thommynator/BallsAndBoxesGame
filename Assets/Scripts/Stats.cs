@@ -58,6 +58,11 @@ public class Stats : ScriptableObject
             Debug.LogError($"Not found! Can't set new value for stat {stat} on {this.name}");
         }
     }
+
+    public Dictionary<Stat, float> GetStats()
+    {
+        return _stats;
+    }
 }
 
 [Serializable]

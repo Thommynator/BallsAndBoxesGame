@@ -36,9 +36,9 @@ public class MoneyManager : MonoBehaviour
         _moneyDisplay.UpdateMoneyText(_money);
     }
 
-    public int GetClickDamange()
+    public Stats GetMouseClickStats()
     {
-        return (int)_mouseClick.TryToGetStat(Stat.HIT_DAMAGE);
+        return _mouseClick;
     }
     public void IncreaseMoneyBy(int amount)
     {

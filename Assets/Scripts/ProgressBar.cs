@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using MoreMountains.Tools;
 using static UnityEngine.Rendering.DebugUI;
+using System.Globalization;
 
 public class ProgressBar : MonoBehaviour
 {
@@ -27,6 +28,6 @@ public class ProgressBar : MonoBehaviour
         var scale = Mathf.Min(MMMaths.Remap(money, 0, _maxValue, 0, 1), 1);
         _foregroundBar.transform.localScale = new Vector3(scale, 1, 1);
 
-        _text.text = _maxValue.ToString();
+        _text.text = _maxValue.ToString("N0", CultureInfo.CreateSpecificCulture("en-US"));
     }
 }

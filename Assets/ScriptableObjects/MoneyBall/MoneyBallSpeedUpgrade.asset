@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb248f618cfd4e94b809a9f13b3c51fa, type: 3}
-  m_Name: MoneyBallHitDamageUpgrade
+  m_Name: MoneyBallSpeedUpgrade
   m_EditorClassIdentifier: 
-  _maxLevel: 15
+  _maxLevel: 20
   _priceFunction:
     _function:
       serializedVersion: 2
@@ -39,7 +39,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     _roundType: 0
-    _mapToZero: 200
+    _mapToZero: 1000
     _mapToOne: 25000
   _effectFunction:
     _function:
@@ -48,24 +48,24 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
+        inSlope: -0.4604461
+        outSlope: -0.4604461
+        tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
+        outWeight: 0.032246716
       - serializedVersion: 3
         time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: -1
+        outSlope: -1
         tangentMode: 34
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.33333334
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     _roundType: 3
-    _mapToZero: 1
+    _mapToZero: 0
     _mapToOne: 1

@@ -21,6 +21,10 @@ MonoBehaviour:
     value: 2.5
   - key: 2
     value: 500
+  - key: 101
+    value: 0
+  - key: 102
+    value: 0
   displayName: Bomb Ball
   description: Creates an explosion on impact, which hits multiple boxes at once.
   sprite: {fileID: 21300000, guid: f8ef5282e09f8254aa35451b998365cd, type: 3}

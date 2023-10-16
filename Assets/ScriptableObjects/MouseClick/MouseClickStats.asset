@@ -15,6 +15,10 @@ MonoBehaviour:
   initialStats:
   - key: 0
     value: 1
+  - key: 101
+    value: 0
+  - key: 102
+    value: 0
   displayName: Mouse Click
   description: Destroy boxes with your mouse to earn money.
   sprite: {fileID: 21300000, guid: fa2d4444998df7c4cb2b99e6dc0c9c7d, type: 3}

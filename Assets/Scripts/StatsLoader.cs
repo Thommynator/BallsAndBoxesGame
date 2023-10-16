@@ -6,7 +6,7 @@ public class StatsLoader : MonoBehaviour
 {
     public List<Stats> stats;
 
-    void Start()
+    void Awake()
     {
         foreach (var stat in stats)
         {

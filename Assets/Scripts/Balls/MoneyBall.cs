@@ -11,9 +11,9 @@ public class MoneyBall : Ball
     {
         base.PlayDamageSound();
         collision.gameObject.TryGetComponent<Box>(out var block);
-        block?.DecreaseHealthBy((int)_stats.TryToGetStat(Stat.HIT_DAMAGE));
+        block?.DecreaseHealthBy(this.GetStats(), (int)_stats.TryToGetStat(Stat.HIT_DAMAGE));
 
-        var extraMoney = (int)GetStats().TryToGetStat(Stat.MONEY_ON_DEATH);
+        var extraMoney = (int)GetStats().TryToGetStat(Stat.MONEY_ON_COLLISION);
         _moneyFeedback.PlayFeedbacks(_moneyFeedback.transform.position, extraMoney);
         MoneyManager.Instance.IncreaseMoneyBy(extraMoney);
     }

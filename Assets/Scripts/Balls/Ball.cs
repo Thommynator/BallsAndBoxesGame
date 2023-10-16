@@ -117,7 +117,7 @@ public abstract class Ball : MonoBehaviour
     {
         PlayDamageSound();
         collision.gameObject.TryGetComponent<Box>(out var block);
-        block?.DecreaseHealthBy((int)_stats.TryToGetStat(Stat.HIT_DAMAGE));
+        block?.DecreaseHealthBy(this.GetStats(), (int)_stats.TryToGetStat(Stat.HIT_DAMAGE));
     }
 
     protected virtual void PlayDamageSound()
