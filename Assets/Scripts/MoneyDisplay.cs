@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Globalization;
 
 public class MoneyDisplay : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class MoneyDisplay : MonoBehaviour
 
     public void UpdateMoneyText(int money)
     {
-        _moneyText.text = money.ToString();
+        _moneyText.text = money.ToString("N0", CultureInfo.CreateSpecificCulture("en-US"));
     }
 
 }

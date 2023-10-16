@@ -42,7 +42,7 @@ public class ExplosiveBall : Ball
         foreach (var blockCollider in surroundingBlocks)
         {
             blockCollider.TryGetComponent(out Box block);
-            block?.DecreaseHealthBy((int)_stats.TryToGetStat(Stat.EXPLOSION_DAMAGE)); 
+            block?.DecreaseHealthBy(this.GetStats(), (int)_stats.TryToGetStat(Stat.EXPLOSION_DAMAGE)); 
         }
 
         PushOtherObjectsAround(contactPoint);

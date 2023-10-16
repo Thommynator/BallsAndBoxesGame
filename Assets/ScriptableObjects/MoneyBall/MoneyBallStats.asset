@@ -21,6 +21,10 @@ MonoBehaviour:
     value: 400
   - key: 6
     value: 5
+  - key: 101
+    value: 0
+  - key: 102
+    value: 0
   displayName: Money Ball
   description: Receive some extra money, everytime this ball hits a box.
   sprite: {fileID: 21300000, guid: 1fef2ba0d73af3040b4bafeca275da75, type: 3}

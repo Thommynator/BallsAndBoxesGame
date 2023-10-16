@@ -6,9 +6,6 @@ public class BallSpawnManager : MonoBehaviour
 {
 
     [SerializeField]
-    private List<Ball> _availableBalls;
-
-    [SerializeField]
     private Transform _spawnArea;
 
     public static BallSpawnManager Instance;
@@ -41,6 +38,9 @@ public class BallSpawnManager : MonoBehaviour
         var randomPosition = _spawnArea.transform.position + new Vector3(x, y, _spawnArea.position.z);
         var ball = Instantiate(ballPrefab, randomPosition, Quaternion.identity);
         ball.transform.SetParent(_parentObject.transform);
+
+        ball.GetStats().IncreaseStat(Stat.COUNT, 1);
+
         return ball;
     }
 }

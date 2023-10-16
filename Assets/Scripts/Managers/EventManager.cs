@@ -23,4 +23,24 @@ public class EventManager : MonoBehaviour
         onUpgrade?.Invoke();
     }
 
+    public Action<Ball> onBallSpawned;
+    public void BallSpawned(Ball ball)
+    {
+        onBallSpawned?.Invoke(ball);
+    }
+
+    public Action<Stats> onMouseClickDamage;
+
+    public void MouseClickDamage(Stats stats)
+    {
+        onMouseClickDamage?.Invoke(stats);
+    }
+
+    public Action<Stats, int> onDamageDealt;
+
+    public void DamageDealt(Stats damageDealer, int damage)
+    {
+        onDamageDealt?.Invoke(damageDealer, damage);
+    }
+
  }

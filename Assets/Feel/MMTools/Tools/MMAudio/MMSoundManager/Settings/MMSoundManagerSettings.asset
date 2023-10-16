@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: MMSoundManagerSettings
   m_EditorClassIdentifier: 
   TargetAudioMixer: {fileID: 24100000, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
-  MasterAudioMixerGroup: {fileID: 24300002, guid: 7e984f512e89b60468e829489e8883e3,
-    type: 2}
-  MusicAudioMixerGroup: {fileID: -2273146209696275378, guid: 7e984f512e89b60468e829489e8883e3,
-    type: 2}
-  SfxAudioMixerGroup: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3,
-    type: 2}
-  UIAudioMixerGroup: {fileID: -3783893103257190392, guid: 7e984f512e89b60468e829489e8883e3,
-    type: 2}
+  MasterAudioMixerGroup: {fileID: 24300002, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
+  MusicAudioMixerGroup: {fileID: -2273146209696275378, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
+  SfxAudioMixerGroup: {fileID: -3165942800488051908, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
+  UIAudioMixerGroup: {fileID: -3783893103257190392, guid: 7e984f512e89b60468e829489e8883e3, type: 2}
+  MixerValuesMultiplier: 20
   Settings:
     OverrideMixerSettings: 1
     MasterVolumeParameter: MasterVolume
@@ -30,10 +27,10 @@ MonoBehaviour:
     MasterVolume: 1
     MasterOn: 1
     MutedMasterVolume: 0
-    MusicVolume: 0.2
+    MusicVolume: 0.24999997
     MusicOn: 1
     MutedMusicVolume: 0
-    SfxVolume: 1
+    SfxVolume: 0.49999997
     SfxOn: 1
     MutedSfxVolume: 0
     UIVolume: 1

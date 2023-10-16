@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using MoreMountains.Feedbacks;
 using System;
+using System.Globalization;
 
 public class Upgrade : MonoBehaviour
 {
@@ -65,11 +66,12 @@ public class Upgrade : MonoBehaviour
     {
         if(number % 1 == 0)
         {
-            return $"{number}";
+            return $"{number}"; 
         } else
         {
-           return $"{string.Format("{0:F1}", upgradeFunctions.GetEffectAtLevel(currentLevel))}"; // one decimal place
+           return number.ToString("N1", CultureInfo.CreateSpecificCulture("en-US")); // comma delimiter at 1000th & one decimal place
         }
     }
 
 }
+

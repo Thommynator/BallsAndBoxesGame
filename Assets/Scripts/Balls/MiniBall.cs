@@ -16,7 +16,7 @@ public class MiniBall: Ball
     {
         base.PlayDamageSound();
         collision.gameObject.TryGetComponent<Box>(out var block);
-        block?.DecreaseHealthBy(Mathf.FloorToInt(_stats.TryToGetStat(Stat.HIT_DAMAGE)));
+        block?.DecreaseHealthBy(this.GetStats(), Mathf.FloorToInt(_stats.TryToGetStat(Stat.HIT_DAMAGE)));
     }
 
 }
