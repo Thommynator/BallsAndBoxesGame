@@ -89,13 +89,13 @@ public class Box : MonoBehaviour
         _boxStatus = BoxStatus.ALIVE;
     }
 
-    public BoxStatus DecreaseHealthBy(Stats damageDealer, int damage)
+    public BoxStatus DecreaseHealthBy(Stats damageDealer, int damage, int moneyMultiplier = 1)
     {
         var realDamage = Mathf.Min(damage, _health);
         _floatingMoneyFeedback.PlayFeedbacks(_floatingMoneyFeedback.transform.position, realDamage);
         _health -= realDamage;
 
-        MoneyManager.Instance.IncreaseMoneyBy(realDamage);
+        MoneyManager.Instance.IncreaseMoneyBy(realDamage * moneyMultiplier);
         damageDealer.IncreaseStat(Stat.TOTAL_DAMAGE, realDamage);
 
         if (IsDead())
@@ -121,7 +121,14 @@ public class Box : MonoBehaviour
         _hitBoxFeedback.PlayFeedbacks();
         Stats mouseClickStats = MoneyManager.Instance.GetMouseClickStats();
         var clickDamage = (int)mouseClickStats.TryToGetStat(Stat.HIT_DAMAGE);
-        DecreaseHealthBy(mouseClickStats, clickDamage);
+        var moneyMultiplier = MouseClickManager.Instance.GetMultiplier();
+        if(DecreaseHealthBy(mouseClickStats, clickDamage, moneyMultiplier) == BoxStatus.DEAD)
+        {
+            MouseClickManager.Instance.IncreaseCombo();
+        } else
+        {
+            MouseClickManager.Instance.ResetCombo();
+        }
         mouseClickStats.IncreaseStat(Stat.COUNT, 1);
     }
 

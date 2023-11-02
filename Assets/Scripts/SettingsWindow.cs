@@ -62,6 +62,7 @@ public class SettingsWindow : MonoBehaviour
     public void SetSfxVolume()
     {
         MMSoundManager.Current.SetVolumeSfx(_sfxVolumeSlider.value);
+        MMSoundManager.Current.SetVolumeUI(_sfxVolumeSlider.value);
     }
 
     public void ToggleMusic()
